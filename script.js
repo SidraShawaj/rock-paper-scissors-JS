@@ -1,4 +1,6 @@
 const options = ["rock", "paper", "scissors"];
+let computerScore = 0,
+  userScore = 0;
 
 const computerPlay = () => {
   const selection = Math.floor(Math.random() * options.length);
@@ -41,15 +43,16 @@ const playRound = (computerSelection, playerSelection) => {
   }
 };
 
-let computerScore = 0,
-  userScore = 0;
-
 const game = () => {
   for (let i = 0; i < 5; i++) {
     const computerSelection = computerPlay();
 
     const playerSelection = prompt(`Round ${i + 1}.\nRock, paper or scissors?`);
-
+    if (!options.includes(playerSelection)) {
+      console.log("invalid choice. Try again.");
+      i--;
+      continue;
+    }
     console.log(playRound(computerSelection, playerSelection));
     console.log(`computer score: ${computerScore}\tYour score: ${userScore}`);
   }
