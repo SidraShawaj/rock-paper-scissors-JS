@@ -48,7 +48,7 @@ const game = () => {
     const computerSelection = computerPlay();
 
     const playerSelection = prompt(`Round ${i + 1}.\nRock, paper or scissors?`);
-    if (!options.includes(playerSelection)) {
+    if (!options.includes(playerSelection.toLocaleLowerCase())) {
       console.log("invalid choice. Try again.");
       i--;
       continue;
