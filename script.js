@@ -46,15 +46,15 @@ const playRound = (computerSelection, playerSelection) => {
 const game = () => {
   for (let i = 0; i < 5; i++) {
     const computerSelection = computerPlay();
-
     const playerSelection = prompt(`Round ${i + 1}.\nRock, paper or scissors?`);
+
     if (!options.includes(playerSelection.toLocaleLowerCase())) {
       console.log("invalid choice. Try again.");
       i--;
-      continue;
+    } else {
+      console.log(playRound(computerSelection, playerSelection));
+      console.log(`computer score: ${computerScore}\tYour score: ${userScore}`);
     }
-    console.log(playRound(computerSelection, playerSelection));
-    console.log(`computer score: ${computerScore}\tYour score: ${userScore}`);
   }
 
   if (computerScore > userScore) {
